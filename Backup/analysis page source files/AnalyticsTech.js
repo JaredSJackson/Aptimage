@@ -128,27 +128,24 @@ class AnalyticsTech extends React.Component {
               // style={this.state.style}
               style={{
                 data: {
-                  fill: ({ y }) =>
-                    y <= 50
+                  fill: ({ datum }) =>
+                    datum.y <= 50
                       ? '#c91ac4'
-                      : y >= 51 && y <= 69
+                      : datum.y >= 51 && datum.y <= 69
                       ? '#f0cf16'
-                      : y >= 70 && y <= 89
+                      : datum.y >= 70 && datum.y <= 89
                       ? '#8fcbff'
-                      : y >= 90 && y <= 100
-                      ? '#0008ff'
-                      : 'red'
+                      : datum.y >= 90 && datum.y <= 100
+                      ? 'red' //blue
+                      : 'green'
                 }
               }}
-              y={data => data.y - 0}
               data={[
                 { x: 'joe', y: 30 },
                 { x: 'seven', y: 55 },
-                { x: 'zell', y: 100 },
+                { x: 'zell', y: 99 },
                 { x: 'ren', y: 70 }
               ]}
-              // style={{ data: { ...colorSwitcher } }}
-
               labels={({ datum }) => `${datum.y}%`}
             />
           </VictoryChart>
@@ -158,43 +155,4 @@ class AnalyticsTech extends React.Component {
   }
 }
 
-// colors
-// 90-100 blue: #0008ff
-// 70%-89% = light blue: #8fcbff
-// 69%-51% = gold; #f0cf16
-// 50% and lower = purple: #c91ac4
-// const colorSwitcher = {
-//   fill: data => {
-//     let color = 'green'; // this is what sets the colors for the other bars
-//     console.log('this is :' + data.x + ' %: ' + data.y);
-//     // let loop = 1;
-//     // if (data.y > 0 && data.y <= 50) {
-//     //   color = '#c91ac4';
-//     // } else if (data.y >= 51 && data.y <= 69) {
-//     //   color = '#f0cf16';
-//     // } else if (data.y >= 70 && data.y <= 89) {
-//     //   color = '#8fcbff';
-//     // } else if (data.y >= 90 && data.y <= 100) {
-//     //   color = '#0008ff';
-//     // }
-//     // while (loop === 1) {
-//     if (data.y >= 90 && data.y <= 100) {
-//       color = '#0008ff';
-//       console.log('blue');
-//     } else if (data.y >= 70 && data.y <= 89) {
-//       color = '#8fcbff';
-//       console.log('light');
-//     } else if (data.y >= 51 && data.y <= 69) {
-//       color = '#f0cf16';
-//       console.log('gold');
-//     } else if (data.y > 0 && data.y <= 50) {
-//       color = '#c91ac4';
-//       console.log('purple');
-//     }
-//     // }
-
-//     return color;
-//   },
-//   strokeWidth: 0
-// };
 export default AnalyticsTech;
