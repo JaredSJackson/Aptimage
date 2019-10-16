@@ -7,7 +7,7 @@ import {
   VictoryLabel
 } from 'victory';
 //, VictoryTheme
-class AnalyticsUser extends React.Component {
+class AnalyticsTotal extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -44,7 +44,7 @@ class AnalyticsUser extends React.Component {
     return (
       <div>
         <div className="progress-circle">
-          <h1>Total Progress Made Using AptImage According to Users</h1>
+          <h1>Total Progress Made Using AptImage</h1>
 
           {/* Progress circle */}
           <svg viewBox="0 0 500 500" width="50%" height="50%">
@@ -95,12 +95,16 @@ class AnalyticsUser extends React.Component {
             <VictoryBar
               horizontal
               style={this.state.style}
-              data={[
-                { x: 'joe', y: 2, fill: 'yellow' },
-                { x: 'seven', y: 3 },
-                { x: 'zell', y: 5 },
-                { x: 'ren', y: 4 }
-              ]}
+              data={
+                // color = {datum.y > 30 ? "green" : "red"},
+                ({ fill: 'lime' },
+                [
+                  { x: 'joe', y: 2 },
+                  { x: 'seven', y: 3 },
+                  { x: 'zell', y: 5 },
+                  { x: 'ren', y: 4 }
+                ])
+              }
               labels={({ datum }) => `${datum.y}%`}
             />
           </VictoryChart>
@@ -109,4 +113,4 @@ class AnalyticsUser extends React.Component {
     );
   }
 }
-export default AnalyticsUser;
+export default AnalyticsTotal;

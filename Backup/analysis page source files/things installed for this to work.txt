@@ -1,3 +1,9 @@
-react
-victory
-bootstrap soon
+import * as React from 'react';
+import {
+  VictoryBar,
+  VictoryChart,
+  VictoryPie,
+  VictoryAnimation,
+  VictoryLabel
+} from 'victory';
+import { DatePicker } from 'antd';

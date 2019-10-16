@@ -1,23 +1,23 @@
 import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Test from './Test';
 import AnalyticsTech from './AnalyticsTech';
 import AnalyticsUser from './AnalyticsUser';
+import NavBar from './NavBar';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showTech: true,
-      showUser: false
-    };
-    this.showHide = this.showHide.bind(this);
-  }
-
   render() {
     return (
-      <div>
-        <AnalyticsUser />;
-        <AnalyticsTech />;
-      </div>
+      <React.Fragment>
+        <BrowserRouter>
+          <NavBar />
+          <Switch>
+            <Route path="/Analysis" component={Test} />
+            <Route path="/TechAnalysis" component={AnalyticsTech} />
+            <Route path="/UserAnalysis" component={AnalyticsUser} />
+          </Switch>
+        </BrowserRouter>
+      </React.Fragment>
     );
   }
 }
