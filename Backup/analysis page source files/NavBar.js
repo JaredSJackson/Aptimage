@@ -1,25 +1,47 @@
 import React from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
-// import AnalyticsTech from './AnalyticsTech';
-// import AnalyticsUser from './AnalyticsUser';
+import { Button, Icon } from 'antd';
+
+const ButtonGroup = Button.Group;
 
 class NavBar extends React.Component {
   render() {
+    let buttonStyle = { shape: 'round' };
     return (
-      <Navbar bg="dark" variant="dark">
-        <Navbar.Brand as={Link} href="/Analysis" to="/Analysis">
-          Analysis Page
-        </Navbar.Brand>
-        <Nav className="ml-auto">
-          <Nav.Link as={NavLink} href="/TechAnalysis" to="/TechAnalysis" exact>
-            Tech
-          </Nav.Link>
-          <Nav.Link as={NavLink} href="/UserAnalysis" to="/UserAnalysis" exact>
-            User
-          </Nav.Link>
-        </Nav>
-      </Navbar>
+      <div className="analysis buttons">
+        <Navbar bg="dark" variant="dark">
+          <ButtonGroup>
+            {/* <Navbar.Brand as={Link} href="/Analysis" to="/Analysis">
+              Analysis Page
+            </Navbar.Brand> */}
+            <Nav className="ml-auto">
+              <Button style={buttonStyle}>
+                <Icon type="desktop" />
+                <Nav.Link
+                  as={NavLink}
+                  href="/TechAnalysis"
+                  to="/TechAnalysis"
+                  exact
+                >
+                  Tech
+                </Nav.Link>
+              </Button>
+              <Button style={buttonStyle}>
+                <Icon type="mobile" />
+                <Nav.Link
+                  as={NavLink}
+                  href="/UserAnalysis"
+                  to="/UserAnalysis"
+                  exact
+                >
+                  User
+                </Nav.Link>
+              </Button>
+            </Nav>
+          </ButtonGroup>
+        </Navbar>
+      </div>
     );
   }
 

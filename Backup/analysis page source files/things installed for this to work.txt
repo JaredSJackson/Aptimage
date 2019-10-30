@@ -8,3 +8,10 @@ import {
 } from 'victory';
 import { DatePicker } from 'antd';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+
+
+react
+victory
+react-router-dom
+antd

@@ -6,24 +6,41 @@ import {
   VictoryAnimation,
   VictoryLabel
 } from 'victory';
+import axios from 'axios';
 //, VictoryTheme
+var progressCirclePercent;
+
 class AnalyticsTotal extends React.Component {
   constructor() {
     super();
     this.state = {
       percent: 0,
       data: this.getData(0), //dunno waht this is tbh
-      clicked: false,
-      style: {
-        data: { fill: '#8fcbff' } //changes the color of the bargraph
-      }
+      clicked: false
+      // style: {
+      //   data: { fill: '#8fcbff' } //changes the color of the bargraph
+      // }
     };
   }
 
   componentDidMount() {
-    let percent = 50; // changes the final product
+    axios
+      .post('https://aptimage.net/API/GetTechRatingTotal.aspx', {})
+      .then(function(response) {
+        // turns the response into string
+        var strThis = JSON.stringify(response.data.ratingsFound[0]).toString();
+
+        // gets the total number from the API
+        progressCirclePercent = parseInt(strThis.replace(/[^0-9.]/g, ''));
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+
+    // information for the progress circle
     this.setStateInterval = window.setInterval(() => {
-      // percent += (Math.random() * 25);
+      let percent = progressCirclePercent; // changes the final product
+
       percent = percent > 100 ? 0 : percent;
       this.setState({
         percent,
@@ -94,16 +111,28 @@ class AnalyticsTotal extends React.Component {
           >
             <VictoryBar
               horizontal
-              style={this.state.style}
+              style={{
+                data: {
+                  fill: ({ datum }) =>
+                    datum.y <= 50
+                      ? '#c91ac4'
+                      : datum.y >= 51 && datum.y <= 69
+                      ? '#f0cf16'
+                      : datum.y >= 70 && datum.y <= 89
+                      ? '#8fcbff'
+                      : datum.y >= 90 && datum.y <= 100
+                      ? 'green' //blue
+                      : 'black'
+                }
+              }}
               data={
                 // color = {datum.y > 30 ? "green" : "red"},
-                ({ fill: 'lime' },
                 [
-                  { x: 'joe', y: 2 },
-                  { x: 'seven', y: 3 },
-                  { x: 'zell', y: 5 },
-                  { x: 'ren', y: 4 }
-                ])
+                  { x: 'joe', y: 20 },
+                  { x: 'seven', y: 60 },
+                  { x: 'zell', y: 80 },
+                  { x: 'ren', y: 90 }
+                ]
               }
               labels={({ datum }) => `${datum.y}%`}
             />

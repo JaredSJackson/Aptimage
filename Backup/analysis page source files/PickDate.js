@@ -1,5 +1,5 @@
 import { DatePicker } from 'antd';
-
+import 'antd/dist/antd.css';
 const { RangePicker } = DatePicker;
 
 function onChange(date, dateString) {

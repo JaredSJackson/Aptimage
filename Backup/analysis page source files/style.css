@@ -1,8 +1,9 @@
 /* body {
 } */
+/* @import 'antd/dist/antd.css'; */
 
-.toggle-button{
-  font-family: "Roboto", sans-serif;
+.toggle-button {
+  font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
   outline: 0;
   background: #000000;
@@ -13,14 +14,14 @@
   cursor: pointer;
 }
 
-.progress-circle{
-  display: flex; 
-  flex-direction:row;
-  align-content:center;
+.progress-circle {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
 }
 
-.display-title{
-  font-family: "Roboto", sans-serif;
+.display-title {
+  font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
   outline: 0;
   margin: 50% 0 25px; /*top  left  bottom*/
@@ -29,6 +30,10 @@
   padding: 15px;
 }
 
-.showUser{
+.showUser {
   visibility: visible;
+}
+
+.analysis-buttons {
+  text-align: center;
 }

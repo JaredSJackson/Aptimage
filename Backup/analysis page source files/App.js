@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Test from './Test';
+import AnalyticsTotal from './AnalyticsTotal';
 import AnalyticsTech from './AnalyticsTech';
 import AnalyticsUser from './AnalyticsUser';
 import NavBar from './NavBar';
@@ -12,7 +12,7 @@ class App extends React.Component {
         <BrowserRouter>
           <NavBar />
           <Switch>
-            <Route path="/Analysis" component={Test} />
+            <Route path="/Analysis" component={AnalyticsTotal} />
             <Route path="/TechAnalysis" component={AnalyticsTech} />
             <Route path="/UserAnalysis" component={AnalyticsUser} />
           </Switch>
