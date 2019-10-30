@@ -1,3 +1,14 @@
+react
+victory
+antd
+axios
+react-bootstrap
+react-router-dom
+
+
+
+
+
 import * as React from 'react';
 import {
   VictoryBar,
@@ -7,11 +18,8 @@ import {
   VictoryLabel
 } from 'victory';
 import { DatePicker } from 'antd';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
-
-
-react
-victory
-react-router-dom
-antd
+import axios from 'axios';
+import 'antd/dist/antd.css';
+import { Nav, Navbar } from 'react-bootstrap';
+import { Link, NavLink } from 'react-router-dom';
+import { Button, Icon } from 'antd';

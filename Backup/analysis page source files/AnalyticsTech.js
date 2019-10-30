@@ -151,11 +151,11 @@ class AnalyticsTech extends React.Component {
       <div>
         <form onSubmit={this.submitHandler}>
           {/* Date picker */}
-          {/* <div>
+          <div>
             <h1>Pick Date Range</h1>
             <RangePicker onChange={onChange} />
             <button>submit</button>
-          </div> */}
+          </div>
           <div className="progress-circle">
             <h1>Total Progress Made Using AptImage According to Employees</h1>
 
