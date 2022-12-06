@@ -9,7 +9,7 @@
   "author": "Kyle Robinson Young <kyle@dontkry.com> (http://dontkry.com)",
   "license": "MIT",
   "devDependencies": {
-    "budo": "^4.1.0"
+    "budo": "^11.8.4"
   },
   "dependencies": {
     "axios": "^0.19.0",
